@@ -158,10 +158,11 @@
           </div>
         </div>
         <h2 class="subtitle has-text-centered">
-          Aliquam vitae elit ullamcorper tellus egestas pellentesque. Ut lacus
-          tellus, maximus vel lectus at, placerat pretium mi. Maecenas
-          dignissim tincidunt vestibulum. Sed consequat hendrerit nisl ut
-          maximus.
+          <b>TL;DR:</b> We introduce a motion planning method for planning
+          optimal contact-rich robot trajectories through the use of tight
+          convex relaxations, and demonstrate its effectiveness on a
+          non-prehensile manipulation task in the plane where a
+          state-of-the-art usually fails.
         </h2>
       </div>
     </div>
@@ -176,7 +177,7 @@
           <h2 class="title is-3">Abstract</h2>
           <div class="content has-text-justified">
             <p>
-              We present a method for global motion planning of robotic
+              We present a novel method for global motion planning of robotic
               systems that interact with the environment through contacts. Our
               method directly handles the hybrid nature of such tasks using
               tools from convex optimization. We formulate the motion-planning
@@ -185,16 +186,19 @@
               a convex set models the quasi-static dynamics within a fixed
               contact mode. For each contact mode, we use semidefinite
               programming to relax the nonconvex dynamics that results from
-              the simultaneous optimization of the object's pose, contact
+              the simultaneous optimization of the object’s pose, contact
               locations, and contact forces. The result is a tight convex
               relaxation of the overall planning problem, that can be
               efficiently solved and quickly rounded to find a feasible
-              contact-rich trajectory. As a first application of this
-              technique, we focus on the task of planar pushing. Exhaustive
-              experiments show that our convex-optimization method generates
-              plans that are consistently within a small percentage of the
-              global optimum. We demonstrate the quality of these plans on a
-              real robotic system.
+              contact-rich trajectory. As an initial application for
+              evaluating our method, we apply it on the task of planar
+              pushing. Exhaustive experiments show that our convex-
+              optimization method generates plans that are consistently within
+              a small percentage of the global optimum, without relying on an
+              initial guess, and that our method succeeds in finding
+              trajectories where a state-of-the-art baseline for contact-rich
+              planning usually fails. We demonstrate the quality of these
+              plans on a real robotic system.
             </p>
           </div>
         </div>
