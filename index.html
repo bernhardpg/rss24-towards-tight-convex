@@ -1,288 +1,384 @@
 <!doctype html>
 <html>
+  <head>
+    <meta charset="utf-8" />
+    <!-- Meta tags for social media banners, these should be filled in appropriately as they are your "business card" -->
+    <!-- Replace the content tag with appropriate information -->
+    <meta
+      name="description"
+      content="Towards Tight Convex Relaxations for Contact-Rich Manipulation - A method for global motion planning of robotic systems interacting through contacts using convex optimization."
+    />
+    <meta
+      property="og:title"
+      content="Towards Tight Convex Relaxations for Contact-Rich Manipulation"
+    />
+    <meta
+      property="og:description"
+      content="Discover a method for global motion planning of robotic systems interacting through contacts using tools from convex optimization."
+    />
+    <meta
+      property="og:url"
+      content="https://github.com/bernhardpg/rss24-towards-tight-convex-relaxations"
+    />
+    <!-- Path to banner image, should be in the path listed below. Optimal dimensions are 1200x630 -->
+    <meta property="og:image" content="static/images/your_banner_image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
 
-<head>
-  <meta charset="utf-8" />
-  <!-- Meta tags for social media banners, these should be filled in appropriately as they are your "business card" -->
-  <!-- Replace the content tag with appropriate information -->
-  <meta name="description"
-    content="Towards Tight Convex Relaxations for Contact-Rich Manipulation - A method for global motion planning of robotic systems interacting through contacts using convex optimization." />
-  <meta property="og:title" content="Towards Tight Convex Relaxations for Contact-Rich Manipulation" />
-  <meta property="og:description"
-    content="Discover a method for global motion planning of robotic systems interacting through contacts using tools from convex optimization." />
-  <meta property="og:url" content="https://github.com/bernhardpg/rss24-towards-tight-convex-relaxations" />
-  <!-- Path to banner image, should be in the path listed below. Optimal dimensions are 1200x630 -->
-  <meta property="og:image" content="static/images/your_banner_image.png" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
+    <meta
+      name="twitter:title"
+      content="Towards Tight Convex Relaxations for Contact-Rich Manipulation"
+    />
+    <meta
+      name="twitter:description"
+      content="Discover a method for global motion planning of robotic systems interacting through contacts using tools from convex optimization."
+    />
+    <!-- Path to banner image, should be in the path listed below. Optimal dimensions are 1200x600 -->
+    <meta
+      name="twitter:image"
+      content="static/images/your_twitter_banner_image.png"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <!-- Keywords for your paper to be indexed by -->
+    <meta
+      name="keywords"
+      content="convex optimization, manipulation, motion planning, robotics, contact-rich manipulation, semidefinite programming, global motion planning, robotic systems, MIT, RSS 2024, convex relaxations, non-prehensile, planar pushing"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <meta name="twitter:title" content="Towards Tight Convex Relaxations for Contact-Rich Manipulation" />
-  <meta name="twitter:description"
-    content="Discover a method for global motion planning of robotic systems interacting through contacts using tools from convex optimization." />
-  <!-- Path to banner image, should be in the path listed below. Optimal dimensions are 1200x600 -->
-  <meta name="twitter:image" content="static/images/your_twitter_banner_image.png" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <!-- Keywords for your paper to be indexed by -->
-  <meta name="keywords"
-    content="convex optimization, manipulation, motion planning, robotics, contact-rich manipulation, semidefinite programming, global motion planning, robotic systems, MIT, RSS 2024, convex relaxations, non-prehensile, planar pushing" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>
+      Towards Tight Convex Relaxations for Contact-Rich Manipulation
+    </title>
+    <link rel="icon" type="image/x-icon" href="static/images/favicon.ico" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+      rel="stylesheet"
+    />
 
-  <title>
-    Towards Tight Convex Relaxations for Contact-Rich Manipulation
-  </title>
-  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico" />
-  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet" />
+    <link rel="stylesheet" href="static/css/bulma.min.css" />
+    <link rel="stylesheet" href="static/css/bulma-carousel.min.css" />
+    <link rel="stylesheet" href="static/css/bulma-slider.min.css" />
+    <link rel="stylesheet" href="static/css/fontawesome.all.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css"
+    />
+    <link rel="stylesheet" href="static/css/index.css" />
 
-  <link rel="stylesheet" href="static/css/bulma.min.css" />
-  <link rel="stylesheet" href="static/css/bulma-carousel.min.css" />
-  <link rel="stylesheet" href="static/css/bulma-slider.min.css" />
-  <link rel="stylesheet" href="static/css/fontawesome.all.min.css" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css" />
-  <link rel="stylesheet" href="static/css/index.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+    <script defer src="static/js/fontawesome.all.min.js"></script>
+    <script src="static/js/bulma-carousel.min.js"></script>
+    <script src="static/js/bulma-slider.min.js"></script>
+    <script src="static/js/index.js"></script>
+    <style>
+      .stats-section {
+        margin-top: 2rem;
+      }
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
-  <script defer src="static/js/fontawesome.all.min.js"></script>
-  <script src="static/js/bulma-carousel.min.js"></script>
-  <script src="static/js/bulma-slider.min.js"></script>
-  <script src="static/js/index.js"></script>
-  <style>
-    .stats-section {
-      margin-top: 2rem;
-    }
+      .stats-card {
+        margin-bottom: 1.5rem;
+      }
 
-    .stats-card {
-      margin-bottom: 1.5rem;
-    }
+      .progress-wrapper {
+        margin-top: 1rem;
+      }
+    </style>
+  </head>
 
-    .progress-wrapper {
-      margin-top: 1rem;
-    }
-  </style>
-</head>
-
-<body>
-  <section class="hero">
-    <div class="hero-body">
-      <div class="container is-max-desktop">
-        <div class="columns is-centered">
-          <div class="column has-text-centered">
-            <h1 class="title is-1 publication-title">
-              Towards Tight Convex Relaxations for Contact-Rich Manipulation
-            </h1>
-            <div class="is-size-5 publication-authors">
-              <!-- Paper authors -->
-              <span class="author-block">
-                <a href="https://bernhardpg.github.io/" target="_blank">Bernhard Paus Graesdal</a><sup>1</sup>,
-              </span>
-              <span class="author-block">
-                Shao Yuan Chew Chia<sup>2</sup>,
-              </span>
-              <span class="author-block">
-                <a href="https://tobiamarcucci.github.io/" target="_blank">Tobia Marcucci</a><sup>1</sup>,
-              </span>
-              <span class="author-block"> Savva Morozov, </span>
-              <span class="author-block">
-                <a href="https://alexandreamice.github.io/" target="_blank">Alexandre Amice</a><sup>1</sup>,
-              </span>
-              <span class="author-block">
-                <a href="https://www.mit.edu/~parrilo/" target="_blank">Pablo A. Parrilo</a><sup>1</sup>,
-              </span>
-              <span class="author-block">
-                <a href="https://groups.csail.mit.edu/locomotion/russt.html" target="_blank">Russ
-                  Tedrake</a><sup>1</sup>
-              </span>
-            </div>
-
-            <div class="is-size-5 publication-authors">
-              <span class="eql-cntrb">
-                <span class="author-block">RSS 2024</span>
-                <small><br /><sup>1</sup> Department of Electrical Engineering and
-                  Computer Science, Massachusetts Institute of Technology,
-                  Cambridge, MA, USA
-                </small>
-                <small><br /><sup>2</sup>
-                  Department of Computer Science, Harvard University,
-                  Cambridge MA, USA.
-                </small>
-              </span>
-            </div>
-
+  <body>
+    <section class="hero">
+      <div class="hero-body">
+        <div class="container is-max-desktop">
+          <div class="columns is-centered">
             <div class="column has-text-centered">
-              <div class="publication-links">
-                <!-- Arxiv PDF link -->
-                <span class="link-block">
-                  <a href="https://arxiv.org/pdf/2402.10312" target="_blank"
-                    class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon">
-                      <i class="fas fa-file-pdf"></i>
-                    </span>
-                    <span>Paper</span>
-                  </a>
+              <h1 class="title is-1 publication-title">
+                Towards Tight Convex Relaxations for Contact-Rich Manipulation
+              </h1>
+              <div class="is-size-5 publication-authors">
+                <!-- Paper authors -->
+                <span class="author-block">
+                  <a href="https://bernhardpg.github.io/" target="_blank"
+                    >Bernhard Paus Graesdal</a
+                  ><sup>1</sup>,
                 </span>
+                <span class="author-block">
+                  Shao Yuan Chew Chia<sup>2</sup>,
+                </span>
+                <span class="author-block">
+                  <a href="https://tobiamarcucci.github.io/" target="_blank"
+                    >Tobia Marcucci</a
+                  ><sup>1</sup>,
+                </span>
+                <span class="author-block"> Savva Morozov, </span>
+                <span class="author-block">
+                  <a href="https://alexandreamice.github.io/" target="_blank"
+                    >Alexandre Amice</a
+                  ><sup>1</sup>,
+                </span>
+                <span class="author-block">
+                  <a href="https://www.mit.edu/~parrilo/" target="_blank"
+                    >Pablo A. Parrilo</a
+                  ><sup>1</sup>,
+                </span>
+                <span class="author-block">
+                  <a
+                    href="https://groups.csail.mit.edu/locomotion/russt.html"
+                    target="_blank"
+                    >Russ Tedrake</a
+                  ><sup>1</sup>
+                </span>
+              </div>
 
-                <!-- Github link -->
-                <span class="link-block">
-                  <a href="https://github.com/bernhardpg/planning-through-contact" target="_blank"
-                    class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon">
-                      <i class="fab fa-github"></i>
-                    </span>
-                    <span>Code</span>
-                  </a>
+              <div class="is-size-5 publication-authors">
+                <span class="eql-cntrb">
+                  <span class="author-block">RSS 2024</span>
+                  <small
+                    ><br /><sup>1</sup> Department of Electrical Engineering and
+                    Computer Science, Massachusetts Institute of Technology,
+                    Cambridge, MA, USA
+                  </small>
+                  <small
+                    ><br /><sup>2</sup>
+                    Department of Computer Science, Harvard University,
+                    Cambridge MA, USA.
+                  </small>
                 </span>
+              </div>
 
-                <!-- ArXiv abstract Link -->
-                <span class="link-block">
-                  <a href="https://arxiv.org/abs/2402.10312" target="_blank"
-                    class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon">
-                      <i class="ai ai-arxiv"></i>
-                    </span>
-                    <span>arXiv</span>
-                  </a>
-                </span>
+              <div class="column has-text-centered">
+                <div class="publication-links">
+                  <!-- Arxiv PDF link -->
+                  <span class="link-block">
+                    <a
+                      href="https://arxiv.org/pdf/2402.10312"
+                      target="_blank"
+                      class="external-link button is-normal is-rounded is-dark"
+                    >
+                      <span class="icon">
+                        <i class="fas fa-file-pdf"></i>
+                      </span>
+                      <span>Paper</span>
+                    </a>
+                  </span>
+
+                  <!-- Github link -->
+                  <span class="link-block">
+                    <a
+                      href="https://github.com/bernhardpg/planning-through-contact"
+                      target="_blank"
+                      class="external-link button is-normal is-rounded is-dark"
+                    >
+                      <span class="icon">
+                        <i class="fab fa-github"></i>
+                      </span>
+                      <span>Code</span>
+                    </a>
+                  </span>
+
+                  <!-- ArXiv abstract Link -->
+                  <span class="link-block">
+                    <a
+                      href="https://arxiv.org/abs/2402.10312"
+                      target="_blank"
+                      class="external-link button is-normal is-rounded is-dark"
+                    >
+                      <span class="icon">
+                        <i class="ai ai-arxiv"></i>
+                      </span>
+                      <span>arXiv</span>
+                    </a>
+                  </span>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
-  <!-- Three teaser videos -->
-  <section class="hero teaser">
-    <div class="container is-max-desktop">
-      <div class="hero-body">
-        <div class="columns">
-          <div class="column">
-            <video poster="" autoplay muted loop style="width: 100%; max-width: 100%">
-              <source src="static/videos/plans_shape_3.mp4" type="video/mp4" />
-            </video>
-          </div>
-          <div class="column">
-            <video poster="" autoplay muted loop style="width: 100%; max-width: 100%">
-              <source src="static/videos/plans_shape_4.mp4" type="video/mp4" />
-            </video>
-          </div>
-          <div class="column">
-            <video poster="" autoplay muted loop style="width: 100%; max-width: 100%">
-              <source src="static/videos/plans_shape_Tee.mp4" type="video/mp4" />
-            </video>
-          </div>
-        </div>
-        <h2 class="subtitle has-text-centered">
-          <b>TL;DR:</b> We introduce a motion planning method for planning
-          optimal contact-rich robot trajectories through the use of tight
-          convex relaxations, and demonstrate its effectiveness on a
-          non-prehensile manipulation task in the plane where a
-          state-of-the-art usually fails.
-        </h2>
-      </div>
-    </div>
-  </section>
-  <!-- End teaser videos -->
-
-  <!-- Paper abstract -->
-  <section class="section hero is-light">
-    <div class="container is-max-desktop">
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-          <h2 class="title is-3">Abstract</h2>
-          <div class="content has-text-justified">
-            <p>
-              We present a novel method for global motion planning of robotic
-              systems that interact with the environment through contacts. Our
-              method directly handles the hybrid nature of such tasks using
-              tools from convex optimization. We formulate the motion-planning
-              problem as a shortest-path problem in a graph of convex sets,
-              where a path in the graph corresponds to a contact sequence and
-              a convex set models the quasi-static dynamics within a fixed
-              contact mode. For each contact mode, we use semidefinite
-              programming to relax the nonconvex dynamics that results from
-              the simultaneous optimization of the object’s pose, contact
-              locations, and contact forces. The result is a tight convex
-              relaxation of the overall planning problem, that can be
-              efficiently solved and quickly rounded to find a feasible
-              contact-rich trajectory. As an initial application for
-              evaluating our method, we apply it on the task of planar
-              pushing. Exhaustive experiments show that our convex-
-              optimization method generates plans that are consistently within
-              a small percentage of the global optimum, without relying on an
-              initial guess, and that our method succeeds in finding
-              trajectories where a state-of-the-art baseline for contact-rich
-              planning usually fails. We demonstrate the quality of these
-              plans on a real robotic system.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- End paper abstract -->
-
-  <!-- Image carousel -->
-  <section class="hero is-small">
-    <div class="hero-body">
-      <h1 class="title has-text-centered">Hardware demonstrations</h1>
-      <div class="container">
-        <div id="results-carousel" class="carousel results-carousel">
-          <div class="item">
-            <img src="static/images/hardware_1.jpg" alt="MY ALT TEXT" class="carousel-image" />
-          </div>
-          <div class="item">
-            <img src="static/images/hardware_2.jpg" alt="MY ALT TEXT" class="carousel-image" />
-          </div>
-        </div>
-        <h2 class="subtitle has-text-centered">
-          Our method is able to generate close-to globally optimal plans for
-          pushing tasks with collision-free motion planning between contact
-          modes. Here, two different pushing trajectories for a T-shaped
-          slider are shown, stabilized with a feedback controller on a real
-          robotic system.
-        </h2>
-      </div>
-    </div>
-    <div class="hero-body">
+    </section>
+    <!-- Three teaser videos -->
+    <section class="hero teaser">
       <div class="container is-max-desktop">
-        <div class="columns is-centered">
-          <div class="column is-flex is-justify-content-center">
-            <video poster="" autoplay muted loop controls style="width: 100%; max-width: 900px">
-              <source src="static/videos/hardware_demos.mp4" type="video/mp4" />
-            </video>
+        <div class="hero-body">
+          <div class="columns">
+            <div class="column">
+              <video
+                poster=""
+                autoplay
+                muted
+                loop
+                style="width: 100%; max-width: 100%"
+              >
+                <source
+                  src="static/videos/plans_shape_3.mp4"
+                  type="video/mp4"
+                />
+              </video>
+            </div>
+            <div class="column">
+              <video
+                poster=""
+                autoplay
+                muted
+                loop
+                style="width: 100%; max-width: 100%"
+              >
+                <source
+                  src="static/videos/plans_shape_4.mp4"
+                  type="video/mp4"
+                />
+              </video>
+            </div>
+            <div class="column">
+              <video
+                poster=""
+                autoplay
+                muted
+                loop
+                style="width: 100%; max-width: 100%"
+              >
+                <source
+                  src="static/videos/plans_shape_Tee.mp4"
+                  type="video/mp4"
+                />
+              </video>
+            </div>
           </div>
+          <h2 class="subtitle has-text-centered">
+            <b>TL;DR:</b> We introduce a motion planning method for planning
+            optimal contact-rich robot trajectories through the use of tight
+            convex relaxations, and demonstrate its effectiveness on a
+            non-prehensile manipulation task in the plane where a
+            state-of-the-art usually fails.
+          </h2>
         </div>
-        <h2 class="subtitle has-text-centered">
-          We demonstrate the feasibility of the obtained motion plans on a
-          Kuka LBR iiwa 7 R800 7-DOF robotic arm, with a T-shaped slider
-          object.
-        </h2>
       </div>
-    </div>
-  </section>
-  <!-- End centered video section -->
+    </section>
+    <!-- End teaser videos -->
 
-  <!-- Youtube video -->
-  <section class="hero is-small is-light">
-    <div class="hero-body">
-      <div class="container">
-        <!-- Paper video. -->
-        <h1 class="title has-text-centered">Video presentation</h1>
+    <!-- Paper abstract -->
+    <section class="section hero is-light">
+      <div class="container is-max-desktop">
         <div class="columns is-centered has-text-centered">
           <div class="column is-four-fifths">
-            <div class="publication-video">
-              <!-- Youtube embed code here -->
-              <iframe src="https://www.youtube.com/embed/JkaxUblCGz0" frameborder="0" allow="autoplay; encrypted-media"
-                allowfullscreen></iframe>
+            <h2 class="title is-3">Abstract</h2>
+            <div class="content has-text-justified">
+              <p>
+                We present a novel method for global motion planning of robotic
+                systems that interact with the environment through contacts. Our
+                method directly handles the hybrid nature of such tasks using
+                tools from convex optimization. We formulate the motion-planning
+                problem as a shortest-path problem in a graph of convex sets,
+                where a path in the graph corresponds to a contact sequence and
+                a convex set models the quasi-static dynamics within a fixed
+                contact mode. For each contact mode, we use semidefinite
+                programming to relax the nonconvex dynamics that results from
+                the simultaneous optimization of the object’s pose, contact
+                locations, and contact forces. The result is a tight convex
+                relaxation of the overall planning problem, that can be
+                efficiently solved and quickly rounded to find a feasible
+                contact-rich trajectory. As an initial application for
+                evaluating our method, we apply it on the task of planar
+                pushing. Exhaustive experiments show that our convex-
+                optimization method generates plans that are consistently within
+                a small percentage of the global optimum, without relying on an
+                initial guess, and that our method succeeds in finding
+                trajectories where a state-of-the-art baseline for contact-rich
+                planning usually fails. We demonstrate the quality of these
+                plans on a real robotic system.
+              </p>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
-  <!-- End youtube video -->
+    </section>
+    <!-- End paper abstract -->
 
-  <!-- Paper poster -->
-  <!--
+    <!-- Image carousel -->
+    <section class="hero is-small">
+      <div class="hero-body">
+        <h1 class="title has-text-centered">Hardware demonstrations</h1>
+        <div class="container">
+          <div id="results-carousel" class="carousel results-carousel">
+            <div class="item">
+              <img
+                src="static/images/hardware_1.jpg"
+                alt="MY ALT TEXT"
+                class="carousel-image"
+              />
+            </div>
+            <div class="item">
+              <img
+                src="static/images/hardware_2.jpg"
+                alt="MY ALT TEXT"
+                class="carousel-image"
+              />
+            </div>
+          </div>
+          <h2 class="subtitle has-text-centered">
+            Our method is able to generate close-to globally optimal plans for
+            pushing tasks with collision-free motion planning between contact
+            modes. Here, two different pushing trajectories for a T-shaped
+            slider are shown, stabilized with a feedback controller on a real
+            robotic system.
+          </h2>
+        </div>
+      </div>
+      <div class="hero-body">
+        <div class="container is-max-desktop">
+          <div class="columns is-centered">
+            <div class="column is-flex is-justify-content-center">
+              <video
+                poster=""
+                autoplay
+                muted
+                loop
+                controls
+                style="width: 100%; max-width: 900px"
+              >
+                <source
+                  src="static/videos/hardware_demos.mp4"
+                  type="video/mp4"
+                />
+              </video>
+            </div>
+          </div>
+          <h2 class="subtitle has-text-centered">
+            We demonstrate the feasibility of the obtained motion plans on a
+            Kuka LBR iiwa 7 R800 7-DOF robotic arm, with a T-shaped slider
+            object.
+          </h2>
+        </div>
+      </div>
+    </section>
+    <!-- End centered video section -->
+
+    <!-- Youtube video -->
+    <section class="hero is-small is-light">
+      <div class="hero-body">
+        <div class="container">
+          <!-- Paper video. -->
+          <h1 class="title has-text-centered">Video presentation</h1>
+          <div class="columns is-centered has-text-centered">
+            <div class="column is-four-fifths">
+              <div class="publication-video">
+                <!-- Youtube embed code here -->
+                <iframe
+                  src="https://www.youtube.com/embed/JkaxUblCGz0"
+                  frameborder="0"
+                  allow="autoplay; encrypted-media"
+                  allowfullscreen
+                ></iframe>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- End youtube video -->
+
+    <!-- Paper poster -->
+    <!--
   <section class="hero is-small is-light">
     <div class="hero-body">
       <div class="container">
@@ -294,89 +390,107 @@
     </div>
   </section>
   -->
-  <!--End paper poster -->
-  <!-- Comparison with a Baseline -->
-  <section class="section stats-section">
-    <div class="container is-max-desktop">
-      <h1 class="title has-text-centered">
-        Comparison with State-of-the-Art
-      </h1>
-      <div class="content has-text-justified">
-        <p>
-          To compare our method with a state-of-the-art baseline for
-          contact-rich planning, we select a direct, contact-implicit
-          trajectory optimization method, that encodes contact implicitly
-          using nonconvex complementarity constraints and solves the planning
-          problem using local (nonconvex) optimization.
-        </p>
-      </div>
+    <!--End paper poster -->
+    <!-- Comparison with a Baseline -->
+    <section class="section stats-section">
+      <div class="container is-max-desktop">
+        <h1 class="title has-text-centered">
+          Comparison with State-of-the-Art
+        </h1>
+        <div class="content has-text-justified">
+          <p>
+            To compare our method with a state-of-the-art baseline for
+            contact-rich planning, we select a direct, contact-implicit
+            trajectory optimization method, that encodes contact implicitly
+            using nonconvex complementarity constraints and solves the planning
+            problem using local (nonconvex) optimization.
+          </p>
+        </div>
 
-      <!-- Easy Case and Hard Case -->
-      <h2 class="subtitle has-text-centered"><b>Success Rates:</b></h2>
-      <!-- Easy Case -->
-      <div class="columns is-centered stats-card">
-        <div class="column is-half">
-          <div class="box">
-            <h2 class="subtitle">Easy Case (Box-shaped geometry)</h2>
-            <div class="progress-wrapper">
-              <p>Contact-Implicit Trajectory Optimization: 58%</p>
-              <progress class="progress is-warning" value="58" max="100">
-                58%
-              </progress>
+        <!-- Easy Case and Hard Case -->
+        <h2 class="subtitle has-text-centered"><b>Success Rates:</b></h2>
+        <!-- Easy Case -->
+        <div class="columns is-centered stats-card">
+          <div class="column is-half">
+            <div class="box">
+              <h2 class="subtitle">Easy Case (Box-shaped geometry)</h2>
+              <div class="progress-wrapper">
+                <p>Contact-Implicit Trajectory Optimization: 58%</p>
+                <progress class="progress is-warning" value="58" max="100">
+                  58%
+                </progress>
+              </div>
+              <div class="progress-wrapper">
+                <p>Our method: 100%</p>
+                <progress class="progress is-success" value="100" max="100">
+                  100%
+                </progress>
+              </div>
             </div>
-            <div class="progress-wrapper">
-              <p>Our method: 100%</p>
-              <progress class="progress is-success" value="100" max="100">
-                100%
-              </progress>
+          </div>
+
+          <!-- Hard Case -->
+          <div class="column is-half">
+            <div class="box">
+              <h2 class="subtitle">Hard Case (Tee-shaped geometry)</h2>
+              <div class="progress-wrapper">
+                <p>Contact-Implicit Trajectory Optimization: 12%</p>
+                <progress class="progress is-danger" value="12" max="100">
+                  12%
+                </progress>
+              </div>
+              <div class="progress-wrapper">
+                <p>Our method: 100%</p>
+                <progress class="progress is-success" value="100" max="100">
+                  100%
+                </progress>
+              </div>
             </div>
           </div>
         </div>
 
-        <!-- Hard Case -->
-        <div class="column is-half">
-          <div class="box">
-            <h2 class="subtitle">Hard Case (Tee-shaped geometry)</h2>
-            <div class="progress-wrapper">
-              <p>Contact-Implicit Trajectory Optimization: 12%</p>
-              <progress class="progress is-danger" value="12" max="100">
-                12%
-              </progress>
-            </div>
-            <div class="progress-wrapper">
-              <p>Our method: 100%</p>
-              <progress class="progress is-success" value="100" max="100">
-                100%
-              </progress>
-            </div>
+        <!-- Videos Section -->
+        <h2 class="subtitle has-text-centered">
+          <b>Solutions generated by our method:</b>
+        </h2>
+        <div class="columns is-centered">
+          <div class="column is-half has-text-centered">
+            <video
+              poster=""
+              autoplay
+              muted
+              loop
+              style="width: 100%; max-width: 100%"
+            >
+              <source
+                src="static/videos/plans_shape_box.mp4"
+                type="video/mp4"
+              />
+            </video>
+          </div>
+          <div class="column is-half has-text-centered">
+            <video
+              poster=""
+              autoplay
+              muted
+              loop
+              style="width: 100%; max-width: 100%"
+            >
+              <source
+                src="static/videos/plans_shape_Tee.mp4"
+                type="video/mp4"
+              />
+            </video>
           </div>
         </div>
       </div>
+    </section>
 
-      <!-- Videos Section -->
-      <h2 class="subtitle has-text-centered">
-        <b>Solutions generated by our method:</b>
-      </h2>
-      <div class="columns is-centered">
-        <div class="column is-half has-text-centered">
-          <video poster="" autoplay muted loop style="width: 100%; max-width: 100%">
-            <source src="static/videos/plans_shape_box.mp4" type="video/mp4" />
-          </video>
-        </div>
-        <div class="column is-half has-text-centered">
-          <video poster="" autoplay muted loop style="width: 100%; max-width: 100%">
-            <source src="static/videos/plans_shape_Tee.mp4" type="video/mp4" />
-          </video>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!--BibTex citation -->
-  <section class="section is-small is-light" id="BibTeX">
-    <div class="container is-max-desktop content">
-      <h2 class="title">BibTeX</h2>
-      <pre><code>
+    <!--BibTex citation -->
+    <section class="section is-small is-light" id="BibTeX">
+      <div class="container is-max-desktop content">
+        <h2 class="title">BibTeX</h2>
+        <pre><code>
           @inproceedings{graesdal2024convexrelaxations,
           title={Towards Tight Convex Relaxations for Contact-Rich Manipulation},
           author = {Bernhard Paus Graesdal and Shao Yuan Chew Chia and Tobia Marcucci and Savva Morozov and Alexandre
@@ -385,38 +499,47 @@
           year={2024}
           }
         </code></pre>
-    </div>
-  </section>
-  <!--End BibTex citation -->
+      </div>
+    </section>
+    <!--End BibTex citation -->
 
-  <footer class="footer">
-    <div class="container">
-      <div class="columns is-centered">
-        <div class="column is-8">
-          <div class="content">
-            <p>
-              This page was built using the
-              <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project
-                Page Template</a>
-              which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
-              You are free to borrow the of this website, we
-              just ask that you link back to this page in the footer. <br />
-              This website is licensed under a
-              <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative Commons
-                Attribution-ShareAlike 4.0 International
-                License</a>.
-            </p>
+    <footer class="footer">
+      <div class="container">
+        <div class="columns is-centered">
+          <div class="column is-8">
+            <div class="content">
+              <p>
+                This page was built using the
+                <a
+                  href="https://github.com/eliahuhorwitz/Academic-project-page-template"
+                  target="_blank"
+                  >Academic Project Page Template</a
+                >
+                which was adopted from the <a
+                  href="https://nerfies.github.io"
+                  target="_blank"
+                  >Nerfies</a
+                > project page. You are free to borrow the of this website, we
+                just ask that you link back to this page in the footer. <br />
+                This website is licensed under a
+                <a
+                  rel="license"
+                  href="http://creativecommons.org/licenses/by-sa/4.0/"
+                  target="_blank"
+                  >Creative Commons Attribution-ShareAlike 4.0 International
+                  License</a
+                >.
+              </p>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </footer>
+    </footer>
 
-  <!-- Statcounter tracking code -->
+    <!-- Statcounter tracking code -->
 
-  <!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
+    <!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
 
-  <!-- End of Statcounter Code -->
-</body>
-
+    <!-- End of Statcounter Code -->
+  </body>
 </html>
